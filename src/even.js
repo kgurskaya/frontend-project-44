@@ -1,7 +1,11 @@
 import readlineSync from 'readline-sync';
 
+let name = 'none';
+
+const getOpposite = (word) => (word === 'yes' ? 'no' : 'yes');
+
 export const askName = () => {
-  const name = readlineSync.question('May I have your name? ');
+  name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}`);
 };
 
@@ -13,20 +17,30 @@ export const greeting = () => {
 
 const getRandomNumber = (maxNumber) => Math.floor(Math.random() * maxNumber);
 
-const round = () => {
-  const randomNumber = getRandomNumber(100);
-  console.log(`Question: ${randomNumber}`);
+const isEven = (number) => ((number % 2 === 0) ? 'yes' : 'no');
+
+const round = (number) => {
+  console.log(`Question: ${number}`);
   const answer = readlineSync.question('Your answer: ');
-  return (randomNumber % 2 === 0 && answer === 'yes') || (randomNumber % 2 !== 0 && answer === 'no');
+  return answer;
 };
 
 export const playGame = () => {
   let score = 0;
   while (score < 3) {
-    if (round() === true) {
+    const currentRandomNumber = getRandomNumber(100);
+    const userAnswer = round(currentRandomNumber);
+    const result = isEven(currentRandomNumber) === userAnswer;
+    if (result === true) {
       score += 1;
+      if (score === 3) {
+        console.log(`Congratulations, ${name}!`);
+      } else {
+        console.log('Correct!');
+      }
     } else {
-      console.log('failed');
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${getOpposite(userAnswer)}.`);
+      console.log(`Let's try again, ${name}`);
       break;
     }
   }
