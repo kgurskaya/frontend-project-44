@@ -22,7 +22,8 @@ const playGame = () => {
     const currentNumber2 = getRandomNumber(10);
     const currentOperand = getRandomOperand();
     const userAnswer = Number(round(`${currentNumber1} ${currentOperand} ${currentNumber2}`));
-    const result = calc(currentNumber1, currentOperand, currentNumber2) === userAnswer;
+    const correctAnswer = calc(currentNumber1, currentOperand, currentNumber2);
+    const result = correctAnswer === userAnswer;
     if (result === true) {
       score += 1;
       if (score === 3) {
@@ -31,6 +32,7 @@ const playGame = () => {
         console.log('Correct!');
       }
     } else {
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
       console.log(`Let's try again, ${name}`);
       break;
     }
