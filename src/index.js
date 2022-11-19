@@ -14,3 +14,9 @@ export const greeting = (currentGameIntroText) => {
   console.log(currentGameIntroText);
   return name;
 };
+
+export const round = (question) => {
+  console.log(`Question: ${question}`);
+  const answer = readlineSync.question('Your answer: ');
+  return answer;
+};

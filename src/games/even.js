@@ -1,15 +1,8 @@
-import readlineSync from 'readline-sync';
-import { greeting, getRandomNumber } from '../index.js';
+import { greeting, round, getRandomNumber } from '../index.js';
 
 const getOpposite = (word) => (word === 'yes' ? 'no' : 'yes');
 
 const isEven = (number) => ((number % 2 === 0) ? 'yes' : 'no');
-
-const round = (number) => {
-  console.log(`Question: ${number}`);
-  const answer = readlineSync.question('Your answer: ');
-  return answer;
-};
 
 const playGame = () => {
   const name = greeting('Answer "yes" if the number is even, otherwise answer "no".');

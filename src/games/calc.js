@@ -1,11 +1,4 @@
-import readlineSync from 'readline-sync';
-import { greeting, getRandomNumber } from '../index.js';
-
-const round = (number1, operand, number2) => {
-  console.log(`Question: ${number1} ${operand} ${number2}`);
-  const answer = readlineSync.question('Your answer: ');
-  return answer;
-};
+import { greeting, round, getRandomNumber } from '../index.js';
 
 const operand = ['+', '-', '*'];
 
@@ -28,7 +21,7 @@ const playGame = () => {
     const currentNumber1 = getRandomNumber(10);
     const currentNumber2 = getRandomNumber(10);
     const currentOperand = getRandomOperand();
-    const userAnswer = Number(round(currentNumber1, currentOperand, currentNumber2));
+    const userAnswer = Number(round(`${currentNumber1} ${currentOperand} ${currentNumber2}`));
     const result = calc(currentNumber1, currentOperand, currentNumber2) === userAnswer;
     if (result === true) {
       score += 1;
