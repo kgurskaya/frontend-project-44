@@ -19,7 +19,7 @@ const playGame = () => {
         console.log('Correct!');
       }
     } else {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${getOpposite(userAnswer)}.`);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${getOpposite(userAnswer)}'.`);
       console.log(`Let's try again, ${name}`);
       break;
     }
