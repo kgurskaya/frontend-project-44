@@ -21,7 +21,7 @@ const playGame = () => {
       console.log(getCorrectReply(score, name));
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${getOpposite(userAnswer)}'.`);
-      console.log(`Let's try again, ${name}`);
+      console.log(`Let's try again, ${name}!`);
       break;
     }
   }

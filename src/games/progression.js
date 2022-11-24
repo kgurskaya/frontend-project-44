@@ -34,7 +34,7 @@ const playGame = () => {
       }
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${progression.correctAnswer}'.`);
-      console.log(`Let's try again, ${name}`);
+      console.log(`Let's try again, ${name}!`);
       break;
     }
   }
