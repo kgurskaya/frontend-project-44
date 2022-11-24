@@ -1,4 +1,6 @@
-import { greeting, round, getRandomNumber } from '../index.js';
+import {
+  greeting, round, getRandomNumber, getCorrectReply,
+} from '../index.js';
 
 const getOpposite = (word) => (word === 'yes' ? 'no' : 'yes');
 
@@ -13,7 +15,7 @@ const playGame = () => {
     const result = isEven(currentRandomNumber) === userAnswer;
     if (result === true) {
       score += 1;
-      console.log(score === 3 ? `Congratulations, ${name}!` : 'Correct!');
+      console.log(getCorrectReply(score, name));
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${getOpposite(userAnswer)}'.`);
       console.log(`Let's try again, ${name}`);

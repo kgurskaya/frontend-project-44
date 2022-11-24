@@ -1,4 +1,6 @@
-import { greeting, round, getRandomNumber } from '../index.js';
+import {
+  greeting, round, getRandomNumber, getCorrectReply,
+} from '../index.js';
 
 const getAnswer = (number1, number2) => {
   let max = Math.max(number1, number2);
@@ -22,11 +24,7 @@ const playGame = () => {
     const result = correctAnswer === userAnswer;
     if (result === true) {
       score += 1;
-      if (score === 3) {
-        console.log(`Congratulations, ${name}!`);
-      } else {
-        console.log('Correct!');
-      }
+      console.log(getCorrectReply(score, name));
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${name}`);

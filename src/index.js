@@ -25,3 +25,10 @@ export const round = (question) => {
   const answer = readlineSync.question('Your answer: ');
   return answer;
 };
+
+export const getCorrectReply = (score, name) => {
+  if (score === 3) {
+    return `Congratulations, ${name}!`;
+  }
+  return 'Correct!';
+};
