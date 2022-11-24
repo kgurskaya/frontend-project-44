@@ -7,6 +7,13 @@ const prime = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 6
 
 const isPrime = (number) => (prime.includes(number) ? 'yes' : 'no');
 
+const getCorrectReply = (score, name) => {
+  if (score === 3) {
+    return `Congratulations, ${name}!`;
+  }
+  return 'Correct!';
+};
+
 const playGame = () => {
   const name = greeting('Answer "yes" if given number is prime. Otherwise answer "no".');
   let score = 0;
@@ -16,11 +23,7 @@ const playGame = () => {
     const result = isPrime(currentRandomNumber) === userAnswer;
     if (result === true) {
       score += 1;
-      if (score === 3) {
-        console.log(`Congratulations, ${name}!`);
-      } else {
-        console.log('Correct!');
-      }
+      console.log(getCorrectReply(score, name));
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${getOpposite(userAnswer)}'.`);
       console.log(`Let's try again, ${name}`);

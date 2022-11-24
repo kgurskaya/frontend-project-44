@@ -13,11 +13,7 @@ const playGame = () => {
     const result = isEven(currentRandomNumber) === userAnswer;
     if (result === true) {
       score += 1;
-      if (score === 3) {
-        console.log(`Congratulations, ${name}!`);
-      } else {
-        console.log('Correct!');
-      }
+      console.log(score === 3 ? `Congratulations, ${name}!` : 'Correct!');
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${getOpposite(userAnswer)}'.`);
       console.log(`Let's try again, ${name}`);
