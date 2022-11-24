@@ -1,6 +1,7 @@
 import readlineSync from 'readline-sync';
 
 export const getRandomNumber = (max) => Math.floor(Math.random() * max);
+
 export const getRandomNumberBetween = (min, max) => {
   const minimum = Math.ceil(min);
   const maximum = Math.floor(max);
@@ -31,4 +32,9 @@ export const getCorrectReply = (score, name) => {
     return `Congratulations, ${name}!`;
   }
   return 'Correct!';
+};
+
+export const printFailText = (name, userAnswer, correctAnswer) => {
+  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+  console.log(`Let's try again, ${name}!`);
 };

@@ -1,5 +1,5 @@
 import {
-  greeting, round, getRandomNumber, getRandomNumberBetween, getCorrectReply,
+  greeting, round, getRandomNumber, getRandomNumberBetween, getCorrectReply, printFailText,
 } from '../index.js';
 
 let score = 0;
@@ -30,8 +30,7 @@ const playGame = () => {
       score += 1;
       console.log(getCorrectReply(score, name));
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${progression.correctAnswer}'.`);
-      console.log(`Let's try again, ${name}!`);
+      printFailText(name, userAnswer, progression.correctAnswer);
       break;
     }
   }
