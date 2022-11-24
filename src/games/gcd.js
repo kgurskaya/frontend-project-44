@@ -2,6 +2,8 @@ import {
   greeting, round, getRandomNumber, getCorrectReply,
 } from '../index.js';
 
+let score = 0;
+
 const getAnswer = (number1, number2) => {
   let max = Math.max(number1, number2);
   let min = Math.min(number1, number2);
@@ -15,7 +17,6 @@ const getAnswer = (number1, number2) => {
 
 const playGame = () => {
   const name = greeting('Find the greatest common divisor of given numbers.');
-  let score = 0;
   while (score < 3) {
     const currentNumber1 = getRandomNumber(100);
     const currentNumber2 = getRandomNumber(100);

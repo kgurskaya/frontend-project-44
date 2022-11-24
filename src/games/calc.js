@@ -2,6 +2,8 @@ import {
   greeting, round, getRandomNumber, getCorrectReply,
 } from '../index.js';
 
+let score = 0;
+
 const operand = ['+', '-', '*'];
 
 const getRandomOperand = () => operand[getRandomNumber(operand.length)];
@@ -18,7 +20,6 @@ const calc = (number1, symbol, number2) => {
 };
 const playGame = () => {
   const name = greeting('What is the result of the expression?');
-  let score = 0;
   while (score < 3) {
     const currentNumber1 = getRandomNumber(10);
     const currentNumber2 = getRandomNumber(10);

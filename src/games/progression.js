@@ -1,6 +1,8 @@
 import {
-  greeting, round, getRandomNumber, getRandomNumberBetween,
+  greeting, round, getRandomNumber, getRandomNumberBetween, getCorrectReply,
 } from '../index.js';
+
+let score = 0;
 
 const getProgression = () => {
   const start = getRandomNumber(100);
@@ -20,18 +22,13 @@ const getProgression = () => {
 
 const playGame = () => {
   const name = greeting('What number is missing in the progression?');
-  let score = 0;
   while (score < 3) {
     const progression = getProgression();
     const userAnswer = Number(round(`${progression.pregression}`));
     const result = progression.correctAnswer === userAnswer;
     if (result === true) {
       score += 1;
-      if (score === 3) {
-        console.log(`Congratulations, ${name}!`);
-      } else {
-        console.log('Correct!');
-      }
+      console.log(getCorrectReply(score, name));
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${progression.correctAnswer}'.`);
       console.log(`Let's try again, ${name}!`);

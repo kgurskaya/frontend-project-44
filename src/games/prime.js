@@ -2,6 +2,8 @@ import {
   greeting, round, getRandomNumber, getCorrectReply,
 } from '../index.js';
 
+let score = 0;
+
 const getOpposite = (word) => (word === 'yes' ? 'no' : 'yes');
 
 // eslint-disable-next-line max-len
@@ -11,7 +13,6 @@ const isPrime = (number) => (prime.includes(number) ? 'yes' : 'no');
 
 const playGame = () => {
   const name = greeting('Answer "yes" if given number is prime. Otherwise answer "no".');
-  let score = 0;
   while (score < 3) {
     const currentRandomNumber = getRandomNumber(100);
     const userAnswer = round(currentRandomNumber);
