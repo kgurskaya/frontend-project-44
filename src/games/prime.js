@@ -14,9 +14,9 @@ const isPrime = (number) => (prime.includes(number) ? 'yes' : 'no');
 const playGame = () => {
   const name = greeting('Answer "yes" if given number is prime. Otherwise answer "no".');
   while (score < 3) {
-    const currentRandomNumber = getRandomNumber(100);
-    const userAnswer = round(currentRandomNumber);
-    const result = isPrime(currentRandomNumber) === userAnswer;
+    const RandomNumber = getRandomNumber(100);
+    const userAnswer = round(RandomNumber);
+    const result = isPrime(RandomNumber) === userAnswer;
     if (result === true) {
       score += 1;
       console.log(getCorrectReply(score, name));

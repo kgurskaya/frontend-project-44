@@ -11,9 +11,11 @@ const getRandomOperand = () => operand[getRandomNumber(operand.length)];
 const calc = (number1, symbol, number2) => {
   if (symbol === '+') {
     return number1 + number2;
-  } if (symbol === '-') {
+  }
+  if (symbol === '-') {
     return number1 - number2;
-  } if (symbol === '*') {
+  }
+  if (symbol === '*') {
     return number1 * number2;
   }
   return null;
