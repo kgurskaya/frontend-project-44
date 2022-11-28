@@ -1,8 +1,7 @@
-import {
-  greeting, round, getRandomNumber, getCorrectReply, printFailText,
-} from '../index.js';
+import playGame from '../index.js';
+import { getRandomNumber } from '../helpers.js';
 
-let score = 0;
+const gameDescription = 'Find the greatest common divisor of given numbers.';
 
 const getAnswer = (number1, number2) => {
   let max = Math.max(number1, number2);
@@ -12,25 +11,19 @@ const getAnswer = (number1, number2) => {
     min = max % min;
     max = left;
   }
-  return max;
+  return String(max);
 };
 
-const playGame = () => {
-  const name = greeting('Find the greatest common divisor of given numbers.');
-  while (score < 3) {
-    const currentNumber1 = getRandomNumber(100);
-    const currentNumber2 = getRandomNumber(100);
-    const userAnswer = Number(round(`${currentNumber1} ${currentNumber2}`));
-    const correctAnswer = getAnswer(currentNumber1, currentNumber2);
-    const result = correctAnswer === userAnswer;
-    if (result === true) {
-      score += 1;
-      console.log(getCorrectReply(score, name));
-    } else {
-      printFailText(name, userAnswer, correctAnswer);
-      break;
-    }
-  }
+const getGameData = () => {
+  const currentNumber1 = getRandomNumber(100);
+  const currentNumber2 = getRandomNumber(100);
+  const question = `${currentNumber1} ${currentNumber2}`;
+  const answer = getAnswer(currentNumber1, currentNumber2);
+  return [question, answer];
 };
 
-export default playGame;
+const playGcd = () => {
+  playGame(gameDescription, getGameData);
+};
+
+export default playGcd;

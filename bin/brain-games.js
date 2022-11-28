@@ -2,6 +2,5 @@
 
 import askName from '../src/cli.js';
 
-// import askName from
 console.log('Welcome to the Brain Games!');
 askName();

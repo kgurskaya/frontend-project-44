@@ -1,28 +1,18 @@
-import {
-  greeting, round, getRandomNumber, getCorrectReply, printFailText,
-} from '../index.js';
+import playGame from '../index.js';
+import { getRandomNumber } from '../helpers.js';
 
-let score = 0;
-const roundCount = 3;
+const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const getOpposite = (word) => (word === 'yes' ? 'no' : 'yes');
+const isEven = (number) => number % 2 === 0;
 
-const isEven = (number) => ((number % 2 === 0) ? 'yes' : 'no');
+function getGameData() {
+  const question = getRandomNumber(100);
+  const answer = isEven(question) ? 'yes' : 'no';
+  return [question, answer];
+}
 
-const playGame = () => {
-  const name = greeting('Answer "yes" if the number is even, otherwise answer "no".');
-  while (score < roundCount) {
-    const currentRandomNumber = getRandomNumber(100);
-    const userAnswer = round(currentRandomNumber);
-    const result = isEven(currentRandomNumber) === userAnswer;
-    if (result === true) {
-      score += 1;
-      console.log(getCorrectReply(score, name));
-    } else {
-      printFailText(name, userAnswer, getOpposite(userAnswer));
-      break;
-    }
-  }
-};
+function playEven() {
+  playGame(gameDescription, getGameData);
+}
 
-export default playGame;
+export default playEven;

@@ -1,39 +1,33 @@
-import {
-  greeting, round, getRandomNumber, getRandomNumberBetween, getCorrectReply, printFailText,
-} from '../index.js';
+import playGame from '../index.js';
+import { getRandomNumber, getRandomNumberBetween } from '../helpers.js';
 
-let score = 0;
+const gameDescription = 'What number is missing in the progression?';
 
 const getProgression = () => {
   const start = getRandomNumber(100);
-  const randomIncrement = getRandomNumber(10);
+  const randomIncrement = getRandomNumberBetween(1, 10);
   const result = [start];
   for (let i = 0; i < getRandomNumberBetween(5, 10); i += 1) {
     result.push(result[result.length - 1] + randomIncrement);
   }
   const randomIndex = getRandomNumberBetween(0, result.length);
-  const correctAnswer = result[randomIndex];
+  const correctAnswer = String(result[randomIndex]);
   result[randomIndex] = '..';
   return {
     correctAnswer,
-    pregression: result.join(' '),
+    progression: result.join(' '),
   };
 };
 
-const playGame = () => {
-  const name = greeting('What number is missing in the progression?');
-  while (score < 3) {
-    const progression = getProgression();
-    const userAnswer = Number(round(`${progression.pregression}`));
-    const result = progression.correctAnswer === userAnswer;
-    if (result === true) {
-      score += 1;
-      console.log(getCorrectReply(score, name));
-    } else {
-      printFailText(name, userAnswer, progression.correctAnswer);
-      break;
-    }
-  }
+const getGameData = () => {
+  const progression = getProgression();
+  const question = progression.progression;
+  const answer = progression.correctAnswer;
+  return [question, answer];
 };
 
-export default playGame;
+const playProgression = () => {
+  playGame(gameDescription, getGameData);
+};
+
+export default playProgression;
