@@ -4,16 +4,16 @@ import { getRandomNumber } from '../helpers.js';
 const gameDescription = 'What is the result of the expression?';
 
 const calc = (number1, symbol, number2) => {
-  if (symbol === '+') {
-    return String(number1 + number2);
+  switch (symbol) {
+    case '+':
+      return String(number1 + number2);
+    case '-':
+      return String(number1 - number2);
+    case '*':
+      return String(number1 * number2);
+    default:
+      throw new Error('Operand is unknown');
   }
-  if (symbol === '-') {
-    return String(number1 - number2);
-  }
-  if (symbol === '*') {
-    return String(number1 * number2);
-  }
-  return null;
 };
 
 const operand = ['+', '-', '*'];
