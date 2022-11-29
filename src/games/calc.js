@@ -16,9 +16,9 @@ const calc = (number1, symbol, number2) => {
   }
 };
 
-const operand = ['+', '-', '*'];
+const operands = ['+', '-', '*'];
 
-const getRandomOperand = () => operand[getRandomNumber(operand.length)];
+const getRandomOperand = () => operands[getRandomNumber(operands.length)];
 
 function getGameData() {
   const currentOperand = getRandomOperand();
