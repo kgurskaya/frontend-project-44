@@ -16,7 +16,10 @@ This project includes 5 math games:
 In order to win you need to give a correct answer 3 times in a row.
 
 ### Instructions
+  Requirements:
 
+- Mac/linux
+- Node v17.6 or higher
 #### Installation
 
   1. Clone the repo
@@ -25,7 +28,7 @@ In order to win you need to give a correct answer 3 times in a row.
    ```
   2. Install NPM packages
    ```sh
-   npm install
+   make install
    ```
   3. Type in cmd one of these commands:
    - `Brain-even`
