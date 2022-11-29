@@ -11,14 +11,14 @@ const getAnswer = (number1, number2) => {
     min = max % min;
     max = left;
   }
-  return String(max);
+  return max;
 };
 
 const getGameData = () => {
   const currentNumber1 = getRandomNumber(100);
   const currentNumber2 = getRandomNumber(100);
   const question = `${currentNumber1} ${currentNumber2}`;
-  const answer = getAnswer(currentNumber1, currentNumber2);
+  const answer = String(getAnswer(currentNumber1, currentNumber2));
   return [question, answer];
 };
 

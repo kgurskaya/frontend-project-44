@@ -6,11 +6,11 @@ const gameDescription = 'What is the result of the expression?';
 const calc = (number1, symbol, number2) => {
   switch (symbol) {
     case '+':
-      return String(number1 + number2);
+      return (number1 + number2);
     case '-':
-      return String(number1 - number2);
+      return (number1 - number2);
     case '*':
-      return String(number1 * number2);
+      return (number1 * number2);
     default:
       throw new Error('Operand is unknown');
   }
@@ -25,7 +25,7 @@ function getGameData() {
   const currentNumber1 = getRandomNumber(10);
   const currentNumber2 = getRandomNumber(10);
   const question = `${currentNumber1} ${currentOperand} ${currentNumber2}`;
-  const answer = calc(currentNumber1, currentOperand, currentNumber2);
+  const answer = String(calc(currentNumber1, currentOperand, currentNumber2));
   return [question, answer];
 }
 
