@@ -22,7 +22,7 @@ const hideNumber = (progression) => {
   const randomIndex = getRandomNumberBetween(0, result.length);
   const hidden = String(result[randomIndex]);
   result[randomIndex] = '..';
-  return [result, hidden];
+  return [result.join(' '), hidden];
 };
 
 const getGameData = () => {
