@@ -20,17 +20,17 @@ const operands = ['+', '-', '*'];
 const maxRandomNumber = 10;
 const getRandomOperand = () => operands[getRandomNumber(operands.length)];
 
-function getGameData() {
+const getGameData = () => {
   const currentOperand = getRandomOperand();
   const currentNumber1 = getRandomNumber(maxRandomNumber);
   const currentNumber2 = getRandomNumber(maxRandomNumber);
   const question = `${currentNumber1} ${currentOperand} ${currentNumber2}`;
   const answer = String(calc(currentNumber1, currentOperand, currentNumber2));
   return [question, answer];
-}
+};
 
-function playCalc() {
+const playCalc = () => {
   playGame(gameDescription, getGameData);
-}
+};
 
 export default playCalc;

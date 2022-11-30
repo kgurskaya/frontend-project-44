@@ -6,14 +6,14 @@ const gameDescription = 'Answer "yes" if the number is even, otherwise answer "n
 const isEven = (number) => number % 2 === 0;
 const maxRandomNumber = 100;
 
-function getGameData() {
+const getGameData = () => {
   const question = getRandomNumber(maxRandomNumber);
   const answer = isEven(question) ? 'yes' : 'no';
   return [question, answer];
-}
+};
 
-function playEven() {
+const playEven = () => {
   playGame(gameDescription, getGameData);
-}
+};
 
 export default playEven;
