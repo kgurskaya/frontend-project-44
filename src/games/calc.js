@@ -17,13 +17,13 @@ const calc = (number1, symbol, number2) => {
 };
 
 const operands = ['+', '-', '*'];
-
+const maxRandomNumber = 10;
 const getRandomOperand = () => operands[getRandomNumber(operands.length)];
 
 function getGameData() {
   const currentOperand = getRandomOperand();
-  const currentNumber1 = getRandomNumber(10);
-  const currentNumber2 = getRandomNumber(10);
+  const currentNumber1 = getRandomNumber(maxRandomNumber);
+  const currentNumber2 = getRandomNumber(maxRandomNumber);
   const question = `${currentNumber1} ${currentOperand} ${currentNumber2}`;
   const answer = String(calc(currentNumber1, currentOperand, currentNumber2));
   return [question, answer];

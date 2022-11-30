@@ -14,9 +14,11 @@ const getGcd = (number1, number2) => {
   return max;
 };
 
+const maxRandomNumber = 100;
+
 const getGameData = () => {
-  const currentNumber1 = getRandomNumber(100);
-  const currentNumber2 = getRandomNumber(100);
+  const currentNumber1 = getRandomNumber(maxRandomNumber);
+  const currentNumber2 = getRandomNumber(maxRandomNumber);
   const question = `${currentNumber1} ${currentNumber2}`;
   const answer = String(getGcd(currentNumber1, currentNumber2));
   return [question, answer];

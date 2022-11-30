@@ -3,11 +3,17 @@ import { getRandomNumber, getRandomNumberBetween } from '../helpers.js';
 
 const gameDescription = 'What number is missing in the progression?';
 
+const maxRandomNumber = 100;
+const minIncrement = 1;
+const maxIncrement = 10;
+const minLength = 5;
+const maxLength = 10;
+
 const getProgression = () => {
-  const start = getRandomNumber(100);
-  const randomIncrement = getRandomNumberBetween(1, 10);
+  const start = getRandomNumber(maxRandomNumber);
+  const randomIncrement = getRandomNumberBetween(minIncrement, maxIncrement);
   const result = [start];
-  for (let i = 0; i < getRandomNumberBetween(5, 10); i += 1) {
+  for (let i = 0; i < getRandomNumberBetween(minLength, maxLength); i += 1) {
     result.push(result[result.length - 1] + randomIncrement);
   }
   const randomIndex = getRandomNumberBetween(0, result.length);
