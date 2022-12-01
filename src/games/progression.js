@@ -9,28 +9,28 @@ const maxIncrement = 10;
 const minLength = 5;
 const maxLength = 10;
 
-const getProgression = (start, randomIncrement) => {
+const getProgression = (start, randomIncrement, progressionLength) => {
   const result = [start];
-  for (let i = 0; i < getRandomNumberBetween(minLength, maxLength); i += 1) {
+  for (let i = 0; i < progressionLength; i += 1) {
     result.push(result[result.length - 1] + randomIncrement);
   }
   return result;
 };
 
-const hideNumber = (progression) => {
-  const result = progression;
-  const randomIndex = getRandomNumberBetween(0, result.length);
-  const hidden = String(result[randomIndex]);
-  result[randomIndex] = '..';
+const hideNumber = (progression, indexToHide) => {
+  const result = [...progression];
+  const hidden = String(result[indexToHide]);
+  result[indexToHide] = '..';
   return [result.join(' '), hidden];
 };
 
 const getGameData = () => {
   const start = getRandomNumber(maxRandomNumber);
   const randomIncrement = getRandomNumberBetween(minIncrement, maxIncrement);
-  const progression = getProgression(start, randomIncrement);
-  const [question, answer] = hideNumber(progression);
-  return [question, answer];
+  const progressionLength = getRandomNumberBetween(minLength, maxLength);
+  const progression = getProgression(start, randomIncrement, progressionLength);
+  const indexToHide = getRandomNumberBetween(0, progression.length);
+  return hideNumber(progression, indexToHide);
 };
 
 const playProgression = () => {
