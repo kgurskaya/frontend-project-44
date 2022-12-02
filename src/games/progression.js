@@ -17,20 +17,15 @@ const getProgression = (start, randomIncrement, progressionLength) => {
   return result;
 };
 
-const hideNumber = (progression, indexToHide) => {
-  const result = [...progression];
-  const hidden = String(result[indexToHide]);
-  result[indexToHide] = '..';
-  return [result.join(' '), hidden];
-};
-
 const getGameData = () => {
   const start = getRandomNumber(maxRandomNumber);
   const randomIncrement = getRandomNumberBetween(minIncrement, maxIncrement);
   const progressionLength = getRandomNumberBetween(minLength, maxLength);
   const progression = getProgression(start, randomIncrement, progressionLength);
   const indexToHide = getRandomNumberBetween(0, progression.length);
-  return hideNumber(progression, indexToHide);
+  const hidden = String(progression[indexToHide]);
+  progression[indexToHide] = '..';
+  return [progression, hidden];
 };
 
 const playProgression = () => {
