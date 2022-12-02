@@ -25,7 +25,7 @@ const getGameData = () => {
   const indexToHide = getRandomNumberBetween(0, progression.length);
   const hidden = String(progression[indexToHide]);
   progression[indexToHide] = '..';
-  return [progression, hidden];
+  return [progression.join(' '), hidden];
 };
 
 const playProgression = () => {
